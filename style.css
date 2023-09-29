@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 
@@ -203,13 +204,6 @@ input::placeholder {
   color: #a8526d;
 }
 
-.upDownControl> #downBtn:onFocus,
-.upDownControl > #upBtn:onFocus{
-  outline: none;
-  border: none;
-  -webkit-tap-highlight-color:transparent;
-
-}
 
 @media (max-width:480px){
   .itemList > li > .workCompletedCheckbox{
