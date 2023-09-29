@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Ubuntu&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+body{
+    height: 100vh;
+    background:url(Images/bg6.jpg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-size: cover;
+    background-repeat: repeat;
+}
+  
+.box{
+  position: relative;
+    width:550px;
+    background-color: #101204;
+    box-shadow: 0 2px 9px #000;
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border-radius: 10px;
+    max-height: 88vh;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100%;
+}
+
+.inputBar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+h3{
+  margin-bottom: 40px;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#addBtn, #inputItem{
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#inputItem{
+  width: 100%;
+  background-color: #22272b;
+  color: #b6c2cf;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding: 10px 10px;
+  font-size: 16px;
+
+}
+
+input::placeholder {
+  color: #b6c2cf; 
+}
+
+#addBtn{
+  padding: 5px 25px;
+  background: #dfe1e6;
+  color: #172b4d;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+#addBtn:hover{
+  background: #fff;
+}
+
+
+.itemList{
+  align-self: flex-start;
+  display: block;
+  margin-top: 30px;
+  list-style: none;
+  width: 100%;
+  overflow-y: auto;
+  font-size: 0.91rem;
+}
+
+.itemList::-webkit-scrollbar {
+  background-color: transparent; /* Set the background color of the scrollbar track */
+}
+
+.itemList > li{
+  margin-top: 10px;
+  color: #b6c2cf;
+  position: relative;
+  width: 100%;
+  padding: 14px;
+  background-color: #22272b;
+  border-radius: 10px;
+  min-height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemList > li > .workCompletedCheckbox{
+  width: 17px;
+  height: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 50%;
+  color: #101204;
+}
+
+.itemList > li > .workCompletedCheckbox > .fa-check{
+  opacity: 0;
+}
+
+.itemList > li > .workCompletedCheckbox > .fa-check:active{
+  opacity: 1;
+}
+
+.itemList > li > .userEntry{
+  width: 90%;
+  height: auto;
+
+}
+
+.itemList > li > .upDownControl{
+  width: 5%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+
+
+#clickBox{
+  position: relative;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background-color: #c7baba;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#clickBox:hover{
+  background: #fff;
+}
+
+
+#clickBox > .fa-check{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #101204;
+  opacity: 0;
+}
+
+#clickBox > input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  background: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+
+.upDownControl > #upBtn{
+  margin-bottom:15px;
+}
+
+
+.upDownControl> #downBtn:hover,
+.upDownControl > #upBtn:hover{
+  color: #a8526d;
+}
+
+.upDownControl> #downBtn:onFocus,
+.upDownControl > #upBtn:onFocus{
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color:transparent;
+
+}
+
+@media (max-width:480px){
+  .itemList > li > .workCompletedCheckbox{
+    min-width: 18px;
+    min-height: 18px;    
+  }
+
+  .box{
+    max-height: 65vh;
+    height: 100%;
+  }
+}
