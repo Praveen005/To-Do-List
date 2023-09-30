@@ -19,7 +19,8 @@ body{
     background-size: cover;
     background-repeat: repeat;
 }
-  
+
+/* Main box that contains all the Todo content  */
 .box{
   position: relative;
     width:550px;
@@ -37,18 +38,26 @@ body{
     height: 100%;
 }
 
+/* .inputBar{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+} */
+
+/* styles for the heading/title  */
+h3{
+  margin-bottom: 40px;
+  color: #fff;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* styles for input area and add button  */
 .inputBar{
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-
-h3{
-  margin-bottom: 40px;
-  color: #fff;
-  font-family: 'Ubuntu', sans-serif;
-}
 
 #addBtn, #inputItem{
     display: inline-block;
@@ -86,7 +95,7 @@ input::placeholder {
   background: #fff;
 }
 
-
+/* Item list styles  */
 .itemList{
   align-self: flex-start;
   display: block;
@@ -97,6 +106,7 @@ input::placeholder {
   font-size: 0.91rem;
 }
 
+/* making the color of scroll-bar that will appear after adding too many items in the itemList area  */
 .itemList::-webkit-scrollbar {
   background-color: transparent; /* Set the background color of the scrollbar track */
 }
@@ -142,6 +152,7 @@ input::placeholder {
 
 }
 
+
 .itemList > li > .upDownControl{
   width: 5%;
   height: 45px;
@@ -155,7 +166,7 @@ input::placeholder {
 
 
 
-#clickBox{
+/* #clickBox{
   position: relative;
   display: inline-block;
   height: 18px;
@@ -191,20 +202,36 @@ input::placeholder {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
-}
+} */
 
-
+/* space between the up and down between  */
 .upDownControl > #upBtn{
   margin-bottom:15px;
 }
 
 
-.upDownControl> #downBtn:hover,
-.upDownControl > #upBtn:hover{
-  color: #a8526d;
+
+/*
+
+I was not able to somehow fix an issue, when I clicked on the upBtn or downBtn, in mobile view, it used to remain 
+as is(i mean the color changed) untill clicked somewhere else.
+
+what I did?
+using JS, 'touchstart' and 'touchend' applied it in touch devices
+
+for desktop view I used media-query.
+
+
+*/
+@media (min-width:768px){
+  .upDownControl > #downBtn:hover,
+  .upDownControl > #upBtn:hover {
+    color: #a8526d ;
+  }
+
 }
 
-
+/* keep the checkbox round, when screen size reduces, it won't get squeezed  */
 @media (max-width:480px){
   .itemList > li > .workCompletedCheckbox{
     min-width: 18px;
@@ -214,5 +241,52 @@ input::placeholder {
   .box{
     max-height: 65vh;
     height: 100%;
+  }
+}
+
+/* Popup that will appear, if try to enter empty list  */
+
+.alertBox{
+  height: 45px;
+  width: 150px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: #f78390;
+  color: #fff;
+  text-align: center;
+  line-height: 42px;
+  border-radius: 3px;
+  overflow: hidden;
+  animation: timer2 0s linear 2s forwards;
+}
+
+.alertBox > .timedBar{
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #000;
+  animation: timer1 2s linear forwards;
+  bottom: 0;
+}
+
+
+
+@keyframes timer1 {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes timer2 {
+  from {
+    width: 100%;
+  }
+  to {
+    color: transparent;
+    opacity: 0;
   }
 }
