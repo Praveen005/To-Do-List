@@ -1,9 +1,11 @@
 const inputText = document.getElementById("inputItem");
 const addItem = document.querySelector("#addBtn");
 const completeList= document.querySelector(".itemList");
+let taskCount= 0; //count the total task added
 
 
 function addListItems(event){
+    const emptyText= document.querySelector('.emptyText')
     const listItem= document.createElement("li");
     listItem.innerHTML= `<div class="workCompletedCheckbox">
     <i class="fa-solid fa-check"></i>
@@ -33,6 +35,13 @@ function addListItems(event){
     if(inputText.value !== ""){
         completeList.appendChild(listItem);
         inputText.value="";
+        taskCount++;
+        console.log("--> ", taskCount);
+
+        //if any task has been added, then remove "It's Lonely Here..." text
+        if(taskCount > 0){
+            emptyText.style.opacity= '0';
+        }
 
     }
     else if(inputText.value === ""){
@@ -40,7 +49,7 @@ function addListItems(event){
         divElement.classList.add('alertBox')
         divElement.innerHTML = `<p class="warning-Text">Empty Item!</p>
         <div class="timedBar"></div>`
-        document.body.appendChild(divElement)
+        document.body.appendChild(divElement);
         setTimeout(()=>{
             divElement.remove();
         }, 2000)
@@ -100,6 +109,12 @@ function addListItems(event){
         deleteIcon.onclick= (event) =>{
             if(listItem.completed){
                 strikeItem.parentElement.remove();
+            //if any task has been deleted, check the count and show the "It's Lonely Here..." text
+                taskCount--;
+                if(taskCount === 0){
+                    emptyText.innerText='Lonely again :('
+                    emptyText.style.opacity= '0.3';
+                }
             }
             listItem.completed= false;
         }

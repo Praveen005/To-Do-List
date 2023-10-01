@@ -23,26 +23,32 @@ body{
 /* Main box that contains all the Todo content  */
 .box{
   position: relative;
-    width:550px;
-    background-color: #101204;
-    box-shadow: 0 2px 9px #000;
-    padding: 20px 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    border-radius: 10px;
-    max-height: 88vh;
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 100%;
+  width:550px;
+  background-color: #101204;
+  box-shadow: 0 2px 9px #000;
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border-radius: 10px;
+  max-height: 88vh;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100%;
 }
 
-/* .inputBar{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-} */
+.emptyText{
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 32;
+  color: #fff;
+  opacity: 0.3;
+  user-select: none;
+}
+
 
 /* styles for the heading/title  */
 h3{
@@ -164,45 +170,6 @@ input::placeholder {
   cursor: pointer;
 }
 
-
-
-/* #clickBox{
-  position: relative;
-  display: inline-block;
-  height: 18px;
-  width: 18px;
-  border-radius: 50%;
-  background-color: #c7baba;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-#clickBox:hover{
-  background: #fff;
-}
-
-
-#clickBox > .fa-check{
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #101204;
-  opacity: 0;
-}
-
-#clickBox > input{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  border: none;
-  background: none;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-} */
 
 /* space between the up and down between  */
 .upDownControl > #upBtn{
